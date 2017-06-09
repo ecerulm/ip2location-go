@@ -269,13 +269,13 @@ func readfloat(pos uint32) float32 {
 }
 
 // initialize the component with the database path
-func Open(dbpath string) {
+func Open(dbpath string) error {
 	max_ipv6_range.SetString("340282366920938463463374607431768211455", 10)
 	
 	var err error
 	f, err = os.Open(dbpath)
 	if err != nil {
-		return
+		return error
 	}
 	
 	meta.databasetype = readuint8(1)
