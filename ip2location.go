@@ -275,7 +275,7 @@ func Open(dbpath string) error {
 	var err error
 	f, err = os.Open(dbpath)
 	if err != nil {
-		return error
+		return err
 	}
 	
 	meta.databasetype = readuint8(1)
